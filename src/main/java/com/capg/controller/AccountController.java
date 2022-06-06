@@ -23,7 +23,7 @@ import com.capg.service.AccountService;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:4200"},allowedHeaders = "*")
-@RequestMapping("/Accounts")
+@RequestMapping("/Account")
 
 public class AccountController {
 	@Autowired
@@ -41,7 +41,7 @@ public class AccountController {
 		return new ResponseEntity<Account>(acc, HttpStatus.OK);
 	}
 
-	@GetMapping("/viewAllAccount")
+	@GetMapping("/getall")
 	public List<Account> viewAllAccount() {
 		return service.viewAccount();
 	}
