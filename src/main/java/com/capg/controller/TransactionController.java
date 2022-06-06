@@ -20,14 +20,14 @@ import com.capg.service.TransactionService;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:4200"},allowedHeaders = "*")
-@RequestMapping(path = "/transactions")
+@RequestMapping(path = "/Transaction")
 public class TransactionController {
 	
 	
 	@Autowired
 	TransactionService trans;
 	
-	@PostMapping(path = "/addTransaction")
+	@PostMapping(path = "/create")
 	public ResponseEntity<String> saveTransactions(@RequestBody Transactions transaction)
 			 {
 		ResponseEntity<String> response = null;
@@ -37,7 +37,7 @@ public class TransactionController {
 		return response;
 	}
 	
-	@GetMapping(path = "/viewAllTransactions")
+	@GetMapping(path = "/getall")
 	public ResponseEntity<List<Transactions>> getAllTransactions(){
 		ResponseEntity<List<Transactions>> response = null;
 		List<Transactions> list = trans.viewTransactions();
