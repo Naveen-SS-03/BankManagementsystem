@@ -18,20 +18,20 @@ import com.capg.service.RecipientServiceImpl;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:4200"},allowedHeaders = "*")
-@RequestMapping("/RecipientDetails")
+@RequestMapping("/Recipient")
 public class RecipientController {
 	
 	@Autowired
 	private RecipientServiceImpl RecipientService;
 
 	
-	@PostMapping("/AddRecipient")
+	@PostMapping("/create")
 	public ResponseEntity<Recipient> createRecipient(@RequestBody Recipient Recipient) {
 		Recipient bd = RecipientService.addRecipient(Recipient);
 		return new ResponseEntity<Recipient>(bd,HttpStatus.CREATED);
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/getall")
 	public List<Recipient> getAllRecipientDetails(){
 		return RecipientService.showAllRecipient();
 	}
